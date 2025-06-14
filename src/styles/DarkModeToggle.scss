@@ -1,16 +1,11 @@
-.dark-toggle {
-  position: fixed;
-  top: 8rem;
-  right: 1rem;
-  z-index: 1000;
-
+.dark-toggle-inline {
   background: none;
   border: 2px solid #0ff;
   border-radius: 50%;
   color: #0ff;
-  font-size: 1.5rem;
-  width: 48px;
-  height: 48px;
+  font-size: 1.2rem;
+  width: 36px;
+  height: 36px;
   cursor: pointer;
   background-color: #111;
   transition: all 0.3s ease;

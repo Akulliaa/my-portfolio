@@ -7,7 +7,6 @@ import Contact from './pages/Contact';
 import About from './pages/About';
 import CVDownload from './components/CVDownload';
 import TechStack from './components/TechStack';
-import DarkModeToggle from './components/DarkModeToggle';
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
@@ -19,20 +18,18 @@ function App() {
   useEffect(() => {
     document.body.className = darkMode ? 'dark' : 'light';
   }, [darkMode]);
+
   return (
-    <>
-      <div className="App">
-        <NavBar />
-        <Home />
-        <About />
-        <CVDownload />
-        <Projects />
-        <TechStack />
-        <Contact />
-        <DarkModeToggle darkMode={darkMode} toggleDarkMode={() => setDarkMode(!darkMode)} />
-      </div>
-      
-    </>
+    <div className="App">
+      <NavBar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+      <Home />
+      <About />
+      <CVDownload />
+      <Projects />
+      <TechStack />
+      <Contact />
+    </div>
   );
 }
+
 export default App;

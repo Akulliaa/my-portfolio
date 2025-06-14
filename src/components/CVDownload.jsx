@@ -12,7 +12,7 @@ const CVDownload = () => {
   return (
     <div className="cv-download">
       <a href={cvFile} download className="cv-download__button">
-        {isFrench ? 'Télécharger mon CV' : 'Download My CV'}
+        {isFrench ? 'Télécharger mon CV' : 'Download My resume'}
       </a>
     </div>
   );
