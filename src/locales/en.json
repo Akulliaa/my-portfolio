@@ -1,0 +1,11 @@
+{
+  "nav": {
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "home": {
+    "welcome": "Welcome to my portfolio",
+    "intro": "I’m a full stack developer passionate about web and cybersecurity."
+  }
+}
