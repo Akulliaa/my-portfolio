@@ -1,0 +1,27 @@
+.projects {
+  padding: 4rem 2rem;
+  background: transparent;
+  margin-top: 4rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease-in-out;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &__title {
+    text-align: center;
+    font-size: 2rem;
+    color: #0ff;
+    text-shadow: 0 0 5px #0ff;
+  }
+
+  &__grid {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+}

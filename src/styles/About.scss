@@ -1,0 +1,27 @@
+.about {
+  padding: 4rem 2rem;
+  background: transparent;
+  margin-top: 4rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease-in-out;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &__title {
+    text-align: center;
+    font-size: 2rem;
+    color: #0ff;
+  }
+
+  &__content {
+    max-width: 700px;
+    margin: 2rem auto;
+    font-size: 1.1rem;
+    color: #eee;
+    line-height: 1.6;
+  }
+}

@@ -1,0 +1,32 @@
+.techstack {
+  text-align: center;
+  padding: 2rem;
+  color: #0ff;
+
+  h2 {
+    text-shadow: 0 0 5px #0ff;
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0;
+    margin-top: 1rem;
+
+    li {
+      background: rgba(0, 255, 255, 0.1);
+      border: 1px solid #0ff;
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      font-weight: bold;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}

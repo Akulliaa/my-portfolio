@@ -1,7 +1,16 @@
 .home {
   text-align: center;
-  padding: 5rem 2rem;
-  background: radial-gradient(circle, #111 0%, #000 100%);
+  padding: 7rem 2rem 5rem 2rem;
+  background: transparent;
+  animation: fadeIn 1.5s ease-in-out;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease-in-out;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
   &__title {
     font-size: 3rem;
@@ -23,5 +32,16 @@
     margin-left: auto;
     margin-right: auto;
     color: #ccc;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

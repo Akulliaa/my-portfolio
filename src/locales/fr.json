@@ -1,11 +1,41 @@
 {
   "nav": {
-    "about": "À propos",
+    "about": "À propos de moi",
     "projects": "Projets",
     "contact": "Contact"
   },
   "home": {
-    "welcome": "Bienvenue sur mon portfolio",
-    "intro": "Je suis développeur full stack passionné par le web et la cybersécurité."
+    "intro": "En tant que futur ingénieur full-stack, je m'intéresse à la création d'applications web robustes et sécurisées."
+  },
+  "about": {
+    "text": "Étudiant en dernière année à l’ESIGELEC, je me spécialise dans le développement web full-stack et la cybersécurité. J’ai acquis une solide expérience à travers des projets concrets menés en équipe, comme Holo’Reed ou lors de mon stage chez ATIM, que je présente dans la section Projets. Je suis passionné par les technologies modernes, la création d’interfaces efficaces et l’impact du code dans le monde réel."
+  },
+  "projects": {
+    "piano": {
+      "title": "Générateur de Piano Roll",
+      "description": "Une application qui convertit des fichiers audio en vidéos de type piano roll."
+    },
+    "atim": {
+      "title": "Application Web ATIM",
+      "description": "Outil web pour estimer l’autonomie des capteurs IoT. Inclut une version statique et une connectée à une API."
+    },
+    "holoreed": {
+      "title": "HoloReed",
+      "description": "Projet étudiant combinant une plateforme web et un casque de réalité mixte pour le suivi des patients atteints de Parkinson et la création d’exercices personnalisés."
+    }
+  },
+  "contact": {
+    "email": "Email",
+    "phone": "Téléphone",
+    "linkedin": "LinkedIn"
+  },
+  "contactForm": {
+    "name": "Votre nom",
+    "email": "Votre e-mail",
+    "phone": "Votre numéro (facultatif)",
+    "message": "Votre message",
+    "send": "Envoyer",
+    "success": "Message envoyé !",
+    "error": "Une erreur est survenue. Veuillez réessayer."
   }
 }
