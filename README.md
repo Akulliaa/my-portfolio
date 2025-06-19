@@ -1,16 +1,77 @@
-<<<<<<< HEAD
-# React + Vite
+<!-- Language Switch -->
+<p align="right">
+  <a href="#francais">Lire en Français</a>
+</p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🚀 Lou Fugier – Cyberpunk Developer Portfolio
 
-Currently, two official plugins are available:
+Welcome to my portfolio. Explore my work in full-stack web development, embedded projects, and cybersecurity—all brought together in an animated and futuristic interface.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🌐 **Live Demo**: [akulliaa.github.io/my-portfolio](https://akulliaa.github.io/my-portfolio)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-=======
-# my-portfolio
->>>>>>> 8f5978a16a016bc5d6a032717231199388ac28fa
+## 🧠 Features
+
+- Smooth scroll & animated sections
+- Custom cursor
+- Light/Dark mode toggle (with a stylish moon & sun icon)
+- Multi-language support (EN / FR)
+- CV download in both languages
+- Contact form (with EmailJS)
+- Tech stack overview
+- Project showcase
+
+## 📁 Stack
+
+- **Frontend**: React, Vite, SCSS, i18next
+- **Animation**: Scroll reveal, custom cursor, dynamic transitions
+- **Form**: EmailJS
+- **Deployment**: GitHub Pages
+
+---
+
+## 📬 Contact
+
+- 📧 Email: [fugierlou@gmail.com](mailto:fugierlou@gmail.com)  
+- 🔗 LinkedIn: [lou-fugier](https://www.linkedin.com/in/lou-fugier-828b8a268/)
+
+---
+
+## Français
+
+<p id="francais"></p>
+
+# 🚀 Lou Fugier – Portfolio Développeur Cyberpunk
+
+Bienvenue sur mon portfolio. Vous y trouverez mes projets de développement full-stack, d’embarqué et de cybersécurité, présentés dans une interface animée et futuriste.
+
+🌐 **Démo en ligne** : [akulliaa.github.io/my-portfolio](https://akulliaa.github.io/my-portfolio)
+
+---
+
+## 🧠 Fonctionnalités
+
+- Scroll fluide & animations dynamiques
+- Curseur personnalisé
+- Thème clair/sombre (avec icônes stylisées)
+- Multilingue (EN / FR)
+- Téléchargement de CV en deux langues
+- Formulaire de contact (via EmailJS)
+- Stack technique
+- Présentation de projets
+
+## 📁 Technologies
+
+- **Frontend** : React, Vite, SCSS, i18next
+- **Animations** : Défilement animé, transitions, curseur
+- **Formulaire** : EmailJS
+- **Déploiement** : GitHub Pages
+
+---
+
+## 📬 Me Contacter
+
+- 📧 Email : [fugierlou@gmail.com](mailto:fugierlou@gmail.com)  
+- 🔗 LinkedIn : [lou-fugier](https://www.linkedin.com/in/lou-fugier-828b8a268/)
+
