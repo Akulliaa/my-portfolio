@@ -1,21 +1,18 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { useOnScreen } from '../hooks/useOnScreen';
-import '../styles/About.scss';
-
-
+import { useTranslation } from 'react-i18next'
+import Section from '../components/Section'
 
 const About = () => {
-  const { t } = useTranslation();
-  const [ref, visible] = useOnScreen();
+  const { t } = useTranslation()
+
   return (
-    <section id="about" ref={ref} className={`about ${visible ? 'visible' : ''}`}>
-      <h2 className="about__title">{t('nav.about')}</h2>
-      <p className="about__content">{t('about.text')}</p>
-    </section>
-    
-  );
+    <Section id="about" title={t('about.title')} className="about">
+      <div className="about__content">
+        <p>{t('about.p1')}</p>
+        <p>{t('about.p2')}</p>
+        <p>{t('about.p3')}</p>
+      </div>
+    </Section>
+  )
+}
 
-};
-
-export default About;
+export default About

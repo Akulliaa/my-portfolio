@@ -1,41 +1,162 @@
 {
-  "nav": {
-    "about": "À propos de moi",
-    "projects": "Projets",
-    "contact": "Contact"
+  "meta": {
+    "title": "Lou Fugier | Développeur logiciel",
+    "description": "Portfolio de Lou Fugier, développeur logiciel orienté backend et full-stack : Python, JavaScript/TypeScript, APIs, cloud, Docker et intelligence artificielle."
   },
-  "home": {
-    "intro": "En tant que futur ingénieur full-stack, je m'intéresse à la création d'applications web robustes et sécurisées."
+  "nav": {
+    "about": "À propos",
+    "experience": "Expériences",
+    "projects": "Projets",
+    "skills": "Compétences",
+    "education": "Formation",
+    "contact": "Contact",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "switchToFrench": "Passer en français",
+    "switchToEnglish": "Passer en anglais",
+    "toTop": "Retour en haut",
+    "toDark": "Passer en mode sombre",
+    "toLight": "Passer en mode clair",
+    "primary": "Navigation principale",
+    "skipToContent": "Aller au contenu"
+  },
+  "hero": {
+    "role": "Développeur logiciel | Backend & Full-Stack",
+    "intro": "Développement backend et full-stack, APIs REST, infrastructure cloud et IA appliquée. Ingénieur diplômé de l’ESIGELEC, spécialisé en cybersécurité et réseaux.",
+    "status": "Ouvert à un poste en CDI ou V.I.E.",
+    "ctaProjects": "Voir mes travaux",
+    "ctaContact": "Me contacter"
   },
   "about": {
-    "text": "Étudiant en dernière année à l’ESIGELEC, je me spécialise dans le développement web full-stack et la cybersécurité. J’ai acquis une solide expérience à travers des projets concrets menés en équipe, comme Holo’Reed ou lors de mon stage chez ATIM, que je présente dans la section Projets. Je suis passionné par les technologies modernes, la création d’interfaces efficaces et l’impact du code dans le monde réel."
+    "title": "À propos",
+    "p1": "Développeur logiciel et ingénieur diplômé de l’ESIGELEC, spécialisé en cybersécurité et réseaux, orienté développement backend et full-stack.",
+    "p2": "Mon expérience couvre les applications web et les APIs REST, l’intégration de modèles de langage via API, ainsi que l’infrastructure cloud avec AWS, Docker et Linux. J’ai récemment passé quatre mois à Taipei à étendre une plateforme d’IA open source : travailler dans une base de code existante et volumineuse, décider quoi modifier, et justifier ces choix.",
+    "p3": "J’apprécie les problèmes techniques qui demandent de bien comprendre le code des autres avant d’écrire le sien."
   },
-  "projects": {
-    "piano": {
-      "title": "Générateur de Piano Roll",
-      "description": "Une application qui convertit des fichiers audio en vidéos de type piano roll."
+  "experience": {
+    "title": "Expériences",
+    "reekon": {
+      "role": "Développeur logiciel R&D — IA / Open WebUI",
+      "company": "Reekon Security",
+      "location": "Taipei, Taïwan",
+      "period": "Septembre 2025 – Décembre 2025",
+      "type": "Stage ingénieur · Équipe R&D",
+      "summary": "Adaptation et extension d’une plateforme d’assistants IA basée sur Open WebUI, au sein d’une base de code open source volumineuse et fréquemment mise à jour.",
+      "bullets": [
+        "Extension du backend Python : nouvelles tables en base de données, associations explicites entre assistants et modèles, persistance des configurations d’interface, aboutissant à une véritable architecture multi-assistants.",
+        "Développement de fonctions « pipe » reliant la plateforme à des modèles de langage internes et externes via API, avec streaming des réponses et limitation de l’affichage pour préserver la fluidité de l’interface.",
+        "Mise en place d’un système de prompts dynamique : les prompts système et les comportements s’adaptent à l’assistant et au modèle sélectionnés.",
+        "Développement d’interfaces Svelte avec génération dynamique de formulaires à partir de définitions JSON/YAML, masquant les structures techniques aux utilisateurs non techniques.",
+        "Sécurisation de l’infrastructure AWS (EC2, VPC, Security Groups) derrière un VPN Headscale auto-hébergé, après comparaison de WireGuard, Tailscale et Headscale, et optimisation des ressources cloud."
+      ]
     },
     "atim": {
-      "title": "Application Web ATIM",
-      "description": "Outil web pour estimer l’autonomie des capteurs IoT. Inclut une version statique et une connectée à une API."
-    },
-    "holoreed": {
-      "title": "HoloReed",
-      "description": "Projet étudiant combinant une plateforme web et un casque de réalité mixte pour le suivi des patients atteints de Parkinson et la création d’exercices personnalisés."
+      "role": "Développeur R&D",
+      "company": "ATIM",
+      "location": "France",
+      "period": "Juin 2023 – Septembre 2023",
+      "type": "Stage R&D",
+      "summary": "Développement d’un outil d’estimation de l’autonomie des capteurs IoT à partir de leur configuration, publié ensuite sous forme de page produit publique.",
+      "bullets": [
+        "Implémentation du modèle de consommation énergétique : nombre de mesures, historisation, fréquence d’envoi, consommation en émission, réception et veille, seuils, température et capacité des batteries.",
+        "Modélisation des gammes de capteurs supportées (MR4, THx, THAQ, TMxP, TCR, LVL, PTMxP) et calcul de la taille et du nombre de trames, automatisant des calculs auparavant réalisés sous Excel.",
+        "Évolution de la première version web vers une API Node.js, puis développement d’un client lourd C++/Qt communiquant avec celle-ci.",
+        "Résolution des problèmes de CORS, de compatibilité Linux et de chemins de fichiers introduits par la séparation client/API."
+      ]
     }
   },
+  "projects": {
+    "title": "Projets",
+    "viewCode": "Voir le code",
+    "viewSite": "Voir le projet",
+    "awardLabel": "Prix",
+    "contextLabel": "Contexte",
+    "context": {
+      "atim": "Développé durant mon stage chez ATIM"
+    },
+    "holoreed": {
+      "title": "Holo’Réed",
+      "award": "Prix du Meilleur Projet d’Ingénierie — ESIGELEC 2024",
+      "description": "Plateforme web destinée au suivi de patients atteints de la maladie de Parkinson, associée à une expérience en réalité mixte. J’ai développé le backend Python, son API REST et la base de données MySQL, ainsi que l’interface web de création et de gestion d’exercices personnalisés."
+    },
+    "atim": {
+      "title": "Calculateur d’autonomie de capteurs IoT",
+      "description": "Outil web estimant la durée de vie des batteries d’un capteur IoT selon son type, sa configuration de mesure et d’émission et ses conditions d’utilisation. Publié par ATIM sous forme de page produit publique."
+    },
+    "piano": {
+      "title": "Générateur de Piano Roll",
+      "description": "Application de bureau Python qui importe des fichiers MIDI et génère des vidéos animées de type piano roll synchronisées avec le son."
+    }
+  },
+  "skills": {
+    "title": "Stack technique",
+    "intro": "Technologies utilisées dans des contextes professionnels, académiques ou personnels, regroupées selon leur place réelle dans mon travail.",
+    "groups": {
+      "core": "Principal",
+      "backend": "Backend",
+      "frontend": "Frontend",
+      "databases": "Bases de données",
+      "cloud": "Cloud & DevOps",
+      "ai": "IA",
+      "other": "Également utilisé"
+    }
+  },
+  "education": {
+    "title": "Formation",
+    "esigelec": {
+      "degree": "Diplôme d’ingénieur en informatique",
+      "school": "ESIGELEC — Grande École d’Ingénieurs",
+      "location": "Rouen, France",
+      "period": "2021 – 2025",
+      "detail": "Dominante C.E.R.T. — Cybersécurité et Réseaux. Vice-président du Bureau des Élèves (BDE Apollo), 2022-2023."
+    },
+    "cpge": {
+      "degree": "CPGE PTSI / PT",
+      "school": "Lycée Vaucanson",
+      "location": "Grenoble, France",
+      "period": "2019 – 2021",
+      "detail": "Classes préparatoires aux grandes écoles, filière Physique-Technologie."
+    },
+    "languagesTitle": "Langues",
+    "languages": {
+      "french": {
+        "name": "Français",
+        "level": "Langue maternelle"
+      },
+      "english": {
+        "name": "Anglais",
+        "level": "Professionnel courant"
+      }
+    }
+  },
+  "cv": {
+    "title": "CV",
+    "intro": "Un résumé d’une page de ma formation, de mes expériences et de mes compétences.",
+    "download": "Télécharger mon CV (FR)",
+    "downloadOther": "English version (PDF)"
+  },
   "contact": {
-    "email": "Email",
+    "title": "Contact",
+    "intro": "Disponible pour des postes backend et full-stack. Le plus simple est de me joindre par e-mail.",
+    "email": "E-mail",
     "phone": "Téléphone",
-    "linkedin": "LinkedIn"
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "location": "Localisation"
   },
   "contactForm": {
+    "legend": "Envoyez-moi un message",
     "name": "Votre nom",
     "email": "Votre e-mail",
     "phone": "Votre numéro (facultatif)",
     "message": "Votre message",
     "send": "Envoyer",
+    "sending": "Envoi…",
     "success": "Message envoyé !",
     "error": "Une erreur est survenue. Veuillez réessayer."
+  },
+  "footer": {
+    "builtWith": "Réalisé avec React, Vite et i18next. Code source sur GitHub.",
+    "rights": "Tous droits réservés."
   }
 }

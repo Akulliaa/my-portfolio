@@ -1,19 +1,34 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { useOnScreen } from '../hooks/useOnScreen';
-import '../styles/Home.scss';
+import { useTranslation } from 'react-i18next'
+import { PROFILE } from '../data/portfolio'
 
 const Home = () => {
-  const { t } = useTranslation();
-  const [ref, visible] = useOnScreen();
+  const { t } = useTranslation()
 
   return (
-    <section ref={ref} className={`home ${visible ? 'visible' : ''}`}>
-      <h1 className="home__title">Lou Fugier</h1>
-      <h2 className="home__subtitle">Web Developer</h2>
-      <p className="home__intro">{t('home.intro')}</p>
-    </section>
-  );
-};
+    <section id="top" className="hero" aria-labelledby="hero-title">
+      <div className="hero__inner">
+        <p className="hero__status">
+          <span className="hero__status-dot" aria-hidden="true" />
+          {t('hero.status')}
+        </p>
 
-export default Home;
+        <h1 id="hero-title" className="hero__title">
+          {PROFILE.name}
+        </h1>
+        <p className="hero__role">{t('hero.role')}</p>
+        <p className="hero__intro">{t('hero.intro')}</p>
+
+        <div className="hero__actions">
+          <a href="#projects" className="button button--primary">
+            {t('hero.ctaProjects')}
+          </a>
+          <a href="#contact" className="button button--ghost">
+            {t('hero.ctaContact')}
+          </a>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default Home

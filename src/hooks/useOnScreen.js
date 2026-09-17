@@ -1,19 +1,34 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react'
 
-export const useOnScreen = (threshold = 0.3) => {
-  const ref = useRef();
-  const [visible, setVisible] = useState(false);
+/**
+ * Reveals an element the first time it enters the viewport and keeps it
+ * visible afterwards, so content never fades back out while scrolling up.
+ * Users who ask for reduced motion get the content immediately.
+ */
+export const useOnScreen = (threshold = 0.15) => {
+  const ref = useRef(null)
+  const prefersReducedMotion =
+    typeof window !== 'undefined' &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  const [visible, setVisible] = useState(prefersReducedMotion)
 
   useEffect(() => {
+    const element = ref.current
+    if (!element || prefersReducedMotion) return
+
     const observer = new IntersectionObserver(
-      ([entry]) => setVisible(entry.isIntersecting),
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true)
+          observer.disconnect()
+        }
+      },
       { threshold }
-    );
+    )
 
-    if (ref.current) observer.observe(ref.current);
+    observer.observe(element)
+    return () => observer.disconnect()
+  }, [threshold, prefersReducedMotion])
 
-    return () => observer.disconnect();
-  }, []);
-
-  return [ref, visible];
-};
+  return [ref, visible]
+}

@@ -1,41 +1,162 @@
 {
-  "nav": {
-    "about": "About me",
-    "projects": "Projects",
-    "contact": "Contact"
+  "meta": {
+    "title": "Lou Fugier | Software Developer",
+    "description": "Portfolio of Lou Fugier, a backend and full-stack software developer working with Python, JavaScript/TypeScript, APIs, cloud, Docker and AI integrations."
   },
-  "home": {
-    "intro": "As a future full-stack engineer, I’m interested in building robust and secure web applications."
+  "nav": {
+    "about": "About",
+    "experience": "Experience",
+    "projects": "Projects",
+    "skills": "Skills",
+    "education": "Education",
+    "contact": "Contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "switchToFrench": "Switch to French",
+    "switchToEnglish": "Switch to English",
+    "toTop": "Back to top",
+    "toDark": "Switch to dark mode",
+    "toLight": "Switch to light mode",
+    "primary": "Primary navigation",
+    "skipToContent": "Skip to content"
+  },
+  "hero": {
+    "role": "Software Developer | Backend & Full-Stack",
+    "intro": "Backend and full-stack development, REST APIs, cloud infrastructure and applied AI. ESIGELEC engineering graduate, specialized in cybersecurity and networks.",
+    "status": "Open to permanent roles and V.I.E. positions",
+    "ctaProjects": "See my work",
+    "ctaContact": "Get in touch"
   },
   "about": {
-    "text": "Currently in my final year at ESIGELEC, I specialize in full-stack web development and cybersecurity. I’ve gained solid experience through hands-on team projects, such as Holo’Reed and my internship at ATIM, both of which are showcased in the Projects section. I’m passionate about modern technologies, creating efficient interfaces, and building code that makes a real-world impact."
+    "title": "About",
+    "p1": "Software developer and ESIGELEC engineering graduate, specialized in cybersecurity and networks, working mainly on backend and full-stack development.",
+    "p2": "My experience covers web applications and REST APIs, language model integration through APIs, and cloud infrastructure with AWS, Docker and Linux. Most recently I spent four months in Taipei extending an open-source AI platform: working inside a large existing codebase, deciding what to change, and justifying those choices.",
+    "p3": "I enjoy technical problems that require reading someone else's code carefully before writing my own."
   },
-  "projects": {
-    "piano": {
-      "title": "Piano Roll Generator",
-      "description": "An app that converts audio files into a playable piano roll video."
+  "experience": {
+    "title": "Experience",
+    "reekon": {
+      "role": "R&D Software Developer — AI / Open WebUI",
+      "company": "Reekon Security",
+      "location": "Taipei, Taiwan",
+      "period": "September 2025 – December 2025",
+      "type": "Engineering internship · R&D team",
+      "summary": "Adaptation and extension of an AI assistant platform based on Open WebUI, inside a large open-source codebase receiving frequent upstream updates.",
+      "bullets": [
+        "Extended the Python backend: new database tables, explicit assistant–model associations and persisted UI configuration, turning the platform into a real multi-assistant architecture.",
+        "Developed pipe functions connecting the platform to internal and external language models through APIs, with response streaming and output limiting to keep the interface responsive.",
+        "Made prompting dynamic: system prompts and behaviour adapt to the selected assistant and model.",
+        "Built Svelte interfaces with forms generated from JSON/YAML definitions, hiding technical structures from non-technical users.",
+        "Secured the AWS infrastructure (EC2, VPC, Security Groups) behind a self-hosted Headscale VPN after comparing WireGuard, Tailscale and Headscale, and optimized cloud resource usage."
+      ]
     },
     "atim": {
-      "title": "ATIM Web App",
-      "description": "Web tool to estimate the battery life of IoT sensors. Includes a static version and one connected to an API."
+      "role": "R&D Developer",
+      "company": "ATIM",
+      "location": "France",
+      "period": "June 2023 – September 2023",
+      "type": "R&D internship",
+      "summary": "Development of a tool estimating the battery life of IoT sensors from their configuration, later released as a public product page.",
+      "bullets": [
+        "Implemented the energy consumption model: measurement count, logging, sending frequency, transmission, reception and sleep consumption, thresholds, temperature and battery capacity.",
+        "Modelled the supported sensor ranges (MR4, THx, THAQ, TMxP, TCR, LVL, PTMxP) and computed frame size and frame count, automating calculations previously done in Excel.",
+        "Extended the first web version with a Node.js API, then a C++/Qt desktop client communicating with it.",
+        "Resolved CORS, Linux compatibility and filesystem path issues introduced by the client/API split."
+      ]
     }
   },
-  "holoreed": {
-    "title": "HoloReed",
-    "description": "A student project combining a web platform and a mixed reality headset to help doctors monitor patients with Parkinson’s disease and deliver personalized exercises."
+  "projects": {
+    "title": "Projects",
+    "viewCode": "View code",
+    "viewSite": "View project",
+    "awardLabel": "Award",
+    "contextLabel": "Context",
+    "context": {
+      "atim": "Developed during my internship at ATIM"
+    },
+    "holoreed": {
+      "title": "Holo’Réed",
+      "award": "Best Engineering Project Award — ESIGELEC 2024",
+      "description": "Web platform supporting the monitoring of patients with Parkinson’s disease, combined with a mixed-reality headset experience. I developed the Python backend, its REST API and the MySQL database, along with the web interface used to create and manage personalized exercises."
+    },
+    "atim": {
+      "title": "IoT Sensor Battery Life Calculator",
+      "description": "Web tool estimating how long an IoT sensor will run on its batteries, based on its type, measurement and transmission configuration and operating conditions. Published by ATIM as a public product page."
+    },
+    "piano": {
+      "title": "Piano Roll Generator",
+      "description": "Python desktop application that imports MIDI files and generates synchronized animated piano roll videos with sound."
+    }
+  },
+  "skills": {
+    "title": "Tech Stack",
+    "intro": "Technologies I have used in professional, academic or personal projects, grouped by how central they are to my work.",
+    "groups": {
+      "core": "Core",
+      "backend": "Backend",
+      "frontend": "Frontend",
+      "databases": "Databases",
+      "cloud": "Cloud & DevOps",
+      "ai": "AI",
+      "other": "Also used"
+    }
+  },
+  "education": {
+    "title": "Education",
+    "esigelec": {
+      "degree": "Engineering degree in computer science",
+      "school": "ESIGELEC — Graduate School of Engineering",
+      "location": "Rouen, France",
+      "period": "2021 – 2025",
+      "detail": "C.E.R.T. specialization — Cybersecurity and Networks. Vice-President of the student union (BDE Apollo), 2022–2023."
+    },
+    "cpge": {
+      "degree": "CPGE PTSI / PT",
+      "school": "Lycée Vaucanson",
+      "location": "Grenoble, France",
+      "period": "2019 – 2021",
+      "detail": "Preparatory classes for French engineering schools, physics and engineering science track."
+    },
+    "languagesTitle": "Languages",
+    "languages": {
+      "french": {
+        "name": "French",
+        "level": "Native"
+      },
+      "english": {
+        "name": "English",
+        "level": "Professional working proficiency"
+      }
+    }
+  },
+  "cv": {
+    "title": "Resume",
+    "intro": "A one-page summary of my education, experience and skills.",
+    "download": "Download my resume (EN)",
+    "downloadOther": "Version française (PDF)"
   },
   "contact": {
+    "title": "Contact",
+    "intro": "Available for backend and full-stack roles. The quickest way to reach me is by email.",
     "email": "Email",
     "phone": "Phone",
-    "linkedin": "LinkedIn"
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "location": "Location"
   },
   "contactForm": {
+    "legend": "Send me a message",
     "name": "Your Name",
     "email": "Your Email",
     "phone": "Your Phone (optional)",
     "message": "Your Message",
     "send": "Send",
+    "sending": "Sending…",
     "success": "Message sent!",
     "error": "Something went wrong. Please try again."
+  },
+  "footer": {
+    "builtWith": "Built with React, Vite and i18next. Source code on GitHub.",
+    "rights": "All rights reserved."
   }
 }

@@ -1,0 +1,94 @@
+// ---------------------------------------------------------------------------
+// Design tokens
+//
+// The two themes share one backdrop photo in two grades: greyscale in the dark
+// theme, full colour in the light theme. In BOTH themes that backdrop is dark,
+// so the page is built in two layers:
+//
+//   backdrop layer — text floating directly over the photo. Light text and
+//                    vivid neon accents, identical in both themes.
+//   surface layer  — navbar, cards and inputs. Dark panels in the dark theme,
+//                    white panels in the light theme, with matching text.
+//
+// A token belongs to exactly one layer. `--accent` is the neon tone for the
+// backdrop; `--accent-ink` is the same hue darkened to stay readable on a white
+// panel. Mixing them up is what made the light theme unreadable before.
+// ---------------------------------------------------------------------------
+
+// Layout
+$content-width: 1100px;
+$radius: 10px;
+$radius-sm: 6px;
+$nav-height: 68px;
+
+// Breakpoints
+$bp-sm: 560px;
+$bp-md: 820px;
+$bp-lg: 1100px;
+
+// Motion
+$transition: 0.25s ease;
+
+:root {
+  --font-display: 'Orbitron', sans-serif;
+  --font-body: 'Rajdhani', 'Orbitron', sans-serif;
+  --content-width: #{$content-width};
+  --nav-height: #{$nav-height};
+
+  // Neon accents — the visual identity, the same in both themes.
+  --accent: #00ffff;
+  --accent-2: #ff00ff;
+  --glow-accent: 0 0 6px rgba(0, 255, 255, 0.55);
+  --glow-accent-2: 0 0 6px rgba(255, 0, 255, 0.5);
+  --on-accent: #001014;
+
+  // The backdrop is dark in both themes, so status colours never change.
+  --success: #6dffb0;
+  --danger: #ff8080;
+}
+
+body.dark {
+  // Backdrop: heavier scrim, keeping the greyscale photo subdued.
+  --page-overlay: rgba(2, 6, 14, 0.7);
+  --text: #dff7fb;
+  --text-strong: #ffffff;
+  --text-muted: #9bb7c0;
+  --rule: rgba(0, 255, 255, 0.28);
+
+  // Surfaces are dark, so the neon is already readable on them.
+  --surface: rgba(9, 14, 24, 0.78);
+  --surface-raised: rgba(14, 20, 32, 0.92);
+  --surface-text: #dff7fb;
+  --surface-text-muted: #9bb7c0;
+  --accent-ink: #00ffff;
+  --accent-2-ink: #ff5cff;
+  --border: rgba(0, 255, 255, 0.28);
+  --border-strong: rgba(0, 255, 255, 0.6);
+  --tag-bg: rgba(0, 255, 255, 0.08);
+
+  --shadow-card: 0 0 18px rgba(0, 255, 255, 0.12);
+  --shadow-card-hover: 0 0 22px rgba(0, 255, 255, 0.28);
+}
+
+body.light {
+  // Backdrop: much lighter scrim so the colour photo stays vivid.
+  --page-overlay: rgba(4, 8, 18, 0.45);
+  --text: #eaf7fb;
+  --text-strong: #ffffff;
+  --text-muted: #c3d9e0;
+  --rule: rgba(0, 255, 255, 0.4);
+
+  // Surfaces are white, so accents darken to stay legible on them.
+  --surface: rgba(255, 255, 255, 0.94);
+  --surface-raised: #ffffff;
+  --surface-text: #101d26;
+  --surface-text-muted: #45606c;
+  --accent-ink: #06697d;
+  --accent-2-ink: #a8107f;
+  --border: rgba(6, 105, 125, 0.28);
+  --border-strong: rgba(6, 105, 125, 0.55);
+  --tag-bg: rgba(6, 105, 125, 0.08);
+
+  --shadow-card: 0 4px 18px rgba(0, 0, 0, 0.28);
+  --shadow-card-hover: 0 8px 26px rgba(0, 0, 0, 0.38);
+}

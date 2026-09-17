@@ -1,0 +1,300 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  // Sections sit below the sticky navbar when reached through an anchor.
+  scroll-padding-top: calc(var(--nav-height) + 1rem);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text);
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body.dark {
+  background-image: url('../assets/cyberpunk-bg.jpg');
+}
+
+body.light {
+  background-image: url('../assets/cyberpunk-white-bg.jpg');
+}
+
+// Readability overlay above the background image, below the content.
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-color: var(--page-overlay);
+}
+
+@include m.fine-pointer {
+  body {
+    cursor: url('../assets/cursor-default.png'), auto;
+  }
+
+  a,
+  button,
+  [role='button'],
+  input[type='submit'] {
+    cursor: url('../assets/cursor-click.png'), pointer;
+  }
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  line-height: 1.25;
+  margin: 0;
+  color: var(--text-strong);
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+a {
+  color: var(--accent-2);
+  text-decoration: none;
+
+  &:hover,
+  &:focus-visible {
+    text-decoration: underline;
+  }
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: v.$radius-sm;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+// Keyboard shortcut past the navigation, revealed only when focused.
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -120%);
+  z-index: 100;
+  padding: 0.6rem 1.25rem;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: var(--on-accent);
+  background: var(--accent);
+  border-radius: 0 0 v.$radius-sm v.$radius-sm;
+  transition: transform v.$transition;
+
+  &:focus {
+    transform: translate(-50%, 0);
+    text-decoration: none;
+  }
+}
+
+// Visible to screen readers only.
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+// ---------------------------------------------------------------------------
+// Sections
+// ---------------------------------------------------------------------------
+
+.section {
+  padding: 4.5rem 0;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+
+  &.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  &__inner {
+    @include m.container;
+  }
+
+  &__title {
+    font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2.1rem);
+    color: var(--accent);
+    text-shadow: var(--glow-accent);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+    // Neon underline, replacing the old plain centred headings.
+    &::after {
+      content: '';
+      display: block;
+      width: 64px;
+      height: 2px;
+      margin-top: 0.75rem;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    }
+  }
+
+  &__intro {
+    max-width: 68ch;
+    margin: 1.25rem 0 0;
+    color: var(--text-muted);
+  }
+
+  @include m.below(v.$bp-sm) {
+    padding: 3rem 0;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Buttons
+// ---------------------------------------------------------------------------
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: v.$radius-sm;
+  border: 1px solid transparent;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  transition: background-color v.$transition, color v.$transition,
+    border-color v.$transition, transform v.$transition;
+
+  &:hover,
+  &:focus-visible {
+    text-decoration: none;
+    transform: translateY(-2px);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    transform: none;
+    cursor: not-allowed;
+  }
+
+  // Buttons sit on the backdrop, so they keep the neon fill in both themes.
+  &--primary {
+    background: var(--accent);
+    color: var(--on-accent);
+    border-color: var(--accent);
+
+    &:hover,
+    &:focus-visible {
+      background: var(--accent-2);
+      border-color: var(--accent-2);
+      color: var(--on-accent);
+    }
+  }
+
+  &--ghost {
+    background: rgba(0, 0, 0, 0.35);
+    color: var(--accent-2);
+    border-color: var(--accent-2);
+
+    &:hover,
+    &:focus-visible {
+      background: var(--accent-2);
+      color: var(--on-accent);
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Technology badges
+// ---------------------------------------------------------------------------
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+
+  &__item {
+    padding: 0.3rem 0.7rem;
+    font-size: 0.82rem;
+    font-family: var(--font-display);
+    letter-spacing: 0.02em;
+    color: var(--accent-ink);
+    background: var(--tag-bg);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  &--muted &__item {
+    color: var(--surface-text-muted);
+    border-color: var(--border);
+    background: transparent;
+    font-size: 0.78rem;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Motion preferences
+// ---------------------------------------------------------------------------
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .section {
+    opacity: 1;
+    transform: none;
+  }
+}

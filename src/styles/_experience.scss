@@ -1,0 +1,96 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.experience {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    margin-top: 2rem;
+  }
+}
+
+.experience-card {
+  @include m.card;
+  position: relative;
+  padding: 1.75rem 1.75rem 1.75rem 2.25rem;
+  overflow: hidden;
+
+  // Neon rail on the left edge.
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--accent), var(--accent-2));
+  }
+
+  &__period {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+  }
+
+  &__role {
+    margin: 0.4rem 0 0;
+    font-size: 1.2rem;
+    // Headings default to --text-strong (white), which would vanish on the
+    // white card of the light theme.
+    color: var(--surface-text);
+  }
+
+  &__company {
+    margin: 0.35rem 0 0;
+    color: var(--surface-text);
+  }
+
+  &__company-name {
+    color: var(--accent-2-ink);
+    font-weight: 600;
+  }
+
+  &__type {
+    margin: 0.15rem 0 0;
+    font-size: 0.85rem;
+    color: var(--surface-text-muted);
+  }
+
+  &__summary {
+    margin: 1.25rem 0 0;
+    max-width: 72ch;
+  }
+
+  &__bullets {
+    margin: 1rem 0 0;
+    padding: 0;
+    list-style: none;
+    max-width: 78ch;
+
+    li {
+      position: relative;
+      padding-left: 1.4rem;
+      margin-bottom: 0.6rem;
+      color: var(--surface-text);
+
+      &::before {
+        content: '▸';
+        position: absolute;
+        left: 0;
+        color: var(--accent-ink);
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  @include m.below(v.$bp-sm) {
+    padding: 1.25rem 1.1rem 1.25rem 1.5rem;
+  }
+}

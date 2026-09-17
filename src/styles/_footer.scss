@@ -1,0 +1,23 @@
+@use 'mixins' as m;
+
+.footer {
+  @include m.container;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-top: 1px solid var(--rule);
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+
+  &__line {
+    margin: 0 0 0.35rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &--muted a {
+      color: var(--text-muted);
+    }
+  }
+}

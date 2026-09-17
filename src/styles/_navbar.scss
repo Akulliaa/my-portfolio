@@ -1,0 +1,211 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+// The navbar is a surface: dark panel in the dark theme, white in the light
+// theme. Its contents therefore use the surface/ink tokens, never the neon ones.
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--surface-raised);
+  color: var(--surface-text);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border-strong);
+
+  &__inner {
+    @include m.container;
+    min-height: v.$nav-height;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  &__brand {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--accent-2-ink);
+    white-space: nowrap;
+
+    &:hover,
+    &:focus-visible {
+      text-decoration: none;
+      color: var(--accent-ink);
+    }
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    a {
+      position: relative;
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--surface-text);
+      padding: 0.25rem 0;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        width: 0;
+        height: 2px;
+        background: var(--accent-ink);
+        transition: width v.$transition;
+      }
+
+      &:hover,
+      &:focus-visible {
+        color: var(--accent-ink);
+        text-decoration: none;
+      }
+
+      &:hover::after,
+      &.is-active::after {
+        width: 100%;
+      }
+
+      &.is-active {
+        color: var(--accent-ink);
+      }
+    }
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  &__lang {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.4rem 0.7rem;
+    background: transparent;
+    border: 1px solid var(--border-strong);
+    border-radius: v.$radius-sm;
+    color: var(--accent-ink);
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    transition: background-color v.$transition, color v.$transition;
+
+    &:hover,
+    &:focus-visible {
+      background: var(--accent);
+      color: var(--on-accent);
+    }
+  }
+
+  // Mobile menu trigger — hidden on wide screens.
+  &__burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 36px;
+    padding: 0 8px;
+    background: transparent;
+    border: 1px solid var(--border-strong);
+    border-radius: v.$radius-sm;
+
+    span {
+      display: block;
+      height: 2px;
+      background: var(--accent-ink);
+      transition: transform v.$transition, opacity v.$transition;
+    }
+
+    &.is-open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    &.is-open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    &.is-open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+  }
+
+  @include m.below(v.$bp-md) {
+    &__burger {
+      display: flex;
+    }
+
+    &__nav {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--surface-raised);
+      border-bottom: 1px solid var(--border-strong);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+
+      &.is-open {
+        max-height: 24rem;
+      }
+    }
+
+    &__links {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      padding: 0.5rem 1.5rem 1rem;
+
+      a {
+        display: block;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid var(--border);
+      }
+    }
+  }
+
+  @include m.below(v.$bp-sm) {
+    &__brand {
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+    }
+  }
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid var(--border-strong);
+  border-radius: 50%;
+  background: var(--surface);
+  transition: background-color v.$transition, transform v.$transition;
+
+  &:hover,
+  &:focus-visible {
+    transform: scale(1.06);
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  &--dark &__icon {
+    filter: drop-shadow(0 0 4px var(--accent));
+  }
+}

@@ -1,42 +1,101 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
-import '../styles/NavBar.scss';
+import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import DarkModeToggle from './DarkModeToggle'
 
-import sunIcon from '../assets/sun-cyberpunk.png';
-import moonIcon from '../assets/moon-cyberpunk.png';
+const SECTIONS = ['about', 'experience', 'projects', 'skills', 'education', 'contact']
 
-const NavBar = ({ darkMode, toggleDarkMode }) => {
-  const { t, i18n } = useTranslation();
+const NavBar = ({ darkMode, toggleTheme }) => {
+  const { t, i18n } = useTranslation()
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('')
 
-  const toggleLang = () => {
-    i18n.changeLanguage(i18n.language === 'en' ? 'fr' : 'en');
-  };
+  const isFrench = i18n.language === 'fr'
+  const toggleLang = () => i18n.changeLanguage(isFrench ? 'en' : 'fr')
+
+  // Highlight the section currently in view.
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
+        if (visible) setActiveSection(visible.target.id)
+      },
+      { rootMargin: '-40% 0px -50% 0px', threshold: 0 }
+    )
+
+    SECTIONS.map((id) => document.getElementById(id))
+      .filter(Boolean)
+      .forEach((element) => observer.observe(element))
+
+    return () => observer.disconnect()
+  }, [])
+
+  // Escape closes the mobile menu.
+  useEffect(() => {
+    if (!menuOpen) return
+    const onKeyDown = (event) => event.key === 'Escape' && setMenuOpen(false)
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [menuOpen])
 
   return (
-    <nav className="navbar">
-      <div className="navbar__brand">LOU FUGIER</div>
-      <ul className="navbar__links">
-        <li><a href="#about">{t('nav.about')}</a></li>
-        <li><a href="#projects">{t('nav.projects')}</a></li>
-        <li><a href="#contact">{t('nav.contact')}</a></li>
-      </ul>
-      <div className="navbar__controls" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-        <button
-          className={`dark-toggle-inline ${darkMode ? 'dark' : 'light'}`}
-          onClick={toggleDarkMode}
-        >
-          <img
-            src={darkMode ? sunIcon : moonIcon}
-            alt="Toggle theme"
-            className="dark-toggle-img"
-          />
-        </button>
-        <button className="navbar__lang" onClick={toggleLang}>
-          {i18n.language === 'en' ? '🇬🇧 EN' : '🇫🇷 FR'}
-        </button>
-      </div>
-    </nav>
-  );
-};
+    <header className="navbar">
+      <div className="navbar__inner">
+        <a className="navbar__brand" href="#top">
+          LOU FUGIER
+        </a>
 
-export default NavBar;
+        <nav
+          id="primary-navigation"
+          className={`navbar__nav ${menuOpen ? 'is-open' : ''}`}
+          aria-label={t('nav.primary')}
+        >
+          <ul className="navbar__links">
+            {SECTIONS.map((section) => (
+              <li key={section}>
+                <a
+                  href={`#${section}`}
+                  onClick={() => setMenuOpen(false)}
+                  aria-current={activeSection === section ? 'true' : undefined}
+                  className={activeSection === section ? 'is-active' : ''}
+                >
+                  {t(`nav.${section}`)}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className="navbar__controls">
+          <DarkModeToggle darkMode={darkMode} toggleTheme={toggleTheme} />
+
+          <button
+            type="button"
+            className="navbar__lang"
+            onClick={toggleLang}
+            aria-label={isFrench ? t('nav.switchToEnglish') : t('nav.switchToFrench')}
+          >
+            <span aria-hidden="true">{isFrench ? '🇫🇷' : '🇬🇧'}</span>
+            <span>{isFrench ? 'FR' : 'EN'}</span>
+          </button>
+
+          <button
+            type="button"
+            className={`navbar__burger ${menuOpen ? 'is-open' : ''}`}
+            onClick={() => setMenuOpen((open) => !open)}
+            aria-expanded={menuOpen}
+            aria-controls="primary-navigation"
+            aria-label={menuOpen ? t('nav.closeMenu') : t('nav.openMenu')}
+          >
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+          </button>
+        </div>
+      </div>
+    </header>
+  )
+}
+
+export default NavBar

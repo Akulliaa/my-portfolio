@@ -3,37 +3,64 @@
   <a href="#francais">Lire en Français</a>
 </p>
 
-# 🚀 Lou Fugier – Cyberpunk Developer Portfolio
+# 🚀 Lou Fugier – Developer Portfolio
 
-Welcome to my portfolio. Explore my work in full-stack web development, embedded projects, and cybersecurity—all brought together in an animated and futuristic interface.
+Personal portfolio of Lou Fugier, software developer focused on backend and full-stack development, presented in a cyberpunk-styled single-page interface.
 
-🌐 **Live Demo**: [akulliaa.github.io/my-portfolio](https://akulliaa.github.io/my-portfolio)
+🌐 **Live site**: [akulliaa.github.io/my-portfolio](https://akulliaa.github.io/my-portfolio)
 
 ---
+
+## 🧭 Sections
+
+Hero · About · Experience · Projects · Tech Stack · Education · Resume · Contact
 
 ## 🧠 Features
 
-- Smooth scroll & animated sections
-- Custom cursor
-- Light/Dark mode toggle (with a stylish moon & sun icon)
-- Multi-language support (EN / FR)
-- CV download in both languages
-- Contact form (with EmailJS)
-- Tech stack overview
-- Project showcase
+- Bilingual FR / EN interface (i18next), remembered between visits
+- Dark / light theme, following the system preference by default and persisted
+- Reveal-on-scroll animations, respecting `prefers-reduced-motion`
+- Custom cyberpunk cursors on precise-pointer devices
+- Responsive layout with a mobile navigation menu
+- Resume download in both languages
+- Contact form (EmailJS)
 
 ## 📁 Stack
 
-- **Frontend**: React, Vite, SCSS, i18next
-- **Animation**: Scroll reveal, custom cursor, dynamic transitions
+- **Frontend**: React 19, Vite, Sass (SCSS modules organised as partials)
+- **i18n**: i18next / react-i18next
 - **Form**: EmailJS
-- **Deployment**: GitHub Pages
+- **Deployment**: GitHub Pages (`gh-pages`)
 
----
+## 🛠️ Local development
+
+```bash
+npm install
+npm run dev      # development server
+npm run build    # production build
+npm run preview  # serve the production build locally
+npm run deploy   # publish dist/ to GitHub Pages
+```
+
+## 🗂️ Project structure
+
+```
+src/
+  data/portfolio.js     # structured data: experiences, projects, skills, education
+  locales/{en,fr}.json  # every visible string
+  pages/                # Home, About, Experience, Projects, Education, Contact
+  components/           # Section, TagList, cards, NavBar, forms
+  hooks/                # useOnScreen, useTheme, useDocumentLanguage
+  styles/               # SCSS partials, single entry point: main.scss
+```
+
+Content is edited in two places only: `src/data/portfolio.js` for dates, links
+and technologies, and `src/locales/*.json` for all wording. Adding a string
+requires adding it to **both** `en.json` and `fr.json`.
 
 ## 📬 Contact
 
-- 📧 Email: [fugierlou@gmail.com](mailto:fugierlou@gmail.com)  
+- 📧 Email: [fugierlou@gmail.com](mailto:fugierlou@gmail.com)
 - 🔗 LinkedIn: [lou-fugier](https://www.linkedin.com/in/lou-fugier-828b8a268/)
 
 ---
@@ -42,36 +69,50 @@ Welcome to my portfolio. Explore my work in full-stack web development, embedded
 
 <p id="francais"></p>
 
-# 🚀 Lou Fugier – Portfolio Développeur Cyberpunk
+# 🚀 Lou Fugier – Portfolio Développeur
 
-Bienvenue sur mon portfolio. Vous y trouverez mes projets de développement full-stack, d’embarqué et de cybersécurité, présentés dans une interface animée et futuriste.
+Portfolio personnel de Lou Fugier, développeur logiciel orienté backend et full-stack, présenté dans une interface single-page au style cyberpunk.
 
-🌐 **Démo en ligne** : [akulliaa.github.io/my-portfolio](https://akulliaa.github.io/my-portfolio)
+🌐 **Site en ligne** : [akulliaa.github.io/my-portfolio](https://akulliaa.github.io/my-portfolio)
 
 ---
+
+## 🧭 Sections
+
+Accueil · À propos · Expériences · Projets · Stack technique · Formation · CV · Contact
 
 ## 🧠 Fonctionnalités
 
-- Scroll fluide & animations dynamiques
-- Curseur personnalisé
-- Thème clair/sombre (avec icônes stylisées)
-- Multilingue (EN / FR)
-- Téléchargement de CV en deux langues
-- Formulaire de contact (via EmailJS)
-- Stack technique
-- Présentation de projets
+- Interface bilingue FR / EN (i18next), mémorisée d'une visite à l'autre
+- Thème clair / sombre, basé par défaut sur la préférence système et persisté
+- Animations à l'apparition, respectant `prefers-reduced-motion`
+- Curseurs cyberpunk personnalisés sur les appareils à pointeur précis
+- Mise en page responsive avec menu de navigation mobile
+- Téléchargement du CV dans les deux langues
+- Formulaire de contact (EmailJS)
 
 ## 📁 Technologies
 
-- **Frontend** : React, Vite, SCSS, i18next
-- **Animations** : Défilement animé, transitions, curseur
+- **Frontend** : React 19, Vite, Sass (SCSS organisé en partials)
+- **i18n** : i18next / react-i18next
 - **Formulaire** : EmailJS
-- **Déploiement** : GitHub Pages
+- **Déploiement** : GitHub Pages (`gh-pages`)
 
----
+## 🛠️ Développement local
 
-## 📬 Me Contacter
+```bash
+npm install
+npm run dev      # serveur de développement
+npm run build    # build de production
+npm run preview  # prévisualiser le build en local
+npm run deploy   # publier dist/ sur GitHub Pages
+```
 
-- 📧 Email : [fugierlou@gmail.com](mailto:fugierlou@gmail.com)  
+Le contenu se modifie à deux endroits uniquement : `src/data/portfolio.js`
+pour les dates, liens et technologies, et `src/locales/*.json` pour tous les
+textes. Toute nouvelle chaîne doit être ajoutée dans **en.json ET fr.json**.
+
+## 📬 Me contacter
+
+- 📧 Email : [fugierlou@gmail.com](mailto:fugierlou@gmail.com)
 - 🔗 LinkedIn : [lou-fugier](https://www.linkedin.com/in/lou-fugier-828b8a268/)
-

@@ -1,0 +1,17 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.cv {
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.75rem;
+  }
+
+  @include m.below(v.$bp-sm) {
+    &__actions .button {
+      flex: 1 1 100%;
+    }
+  }
+}

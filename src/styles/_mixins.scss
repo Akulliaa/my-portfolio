@@ -1,0 +1,35 @@
+@use 'variables' as v;
+
+@mixin below($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+/// Custom cursors only make sense on devices with a precise pointer.
+@mixin fine-pointer {
+  @media (hover: hover) and (pointer: fine) {
+    @content;
+  }
+}
+
+/// Horizontal gutters only, declared without a nested media query so callers
+/// can safely set their own vertical padding afterwards.
+@mixin container {
+  width: 100%;
+  max-width: v.$content-width;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1rem, 4vw, 1.5rem);
+  padding-right: clamp(1rem, 4vw, 1.5rem);
+}
+
+/// Shared surface treatment for cards. Sets the surface text colour so every
+/// child inherits the right layer without repeating it.
+@mixin card {
+  background: var(--surface);
+  color: var(--surface-text);
+  border: 1px solid var(--border);
+  border-radius: v.$radius;
+  box-shadow: var(--shadow-card);
+}

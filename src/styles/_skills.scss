@@ -1,0 +1,38 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.skills {
+  &__groups {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+
+  &__group {
+    @include m.card;
+    padding: 1.25rem;
+
+    .tag-list {
+      margin-top: 0.85rem;
+    }
+  }
+
+  &__group-title {
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+  }
+
+  // Secondary group: quieter, and full width at the end of the grid.
+  &__group--secondary {
+    grid-column: 1 / -1;
+    box-shadow: none;
+    border-style: dashed;
+
+    .skills__group-title {
+      color: var(--surface-text-muted);
+    }
+  }
+}

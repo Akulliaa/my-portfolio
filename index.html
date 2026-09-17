@@ -1,15 +1,58 @@
 <!doctype html>
 <html lang="en">
   <head>
-    
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lou Fugier | Portfolio</title>
+
+    <title>Lou Fugier | Software Developer</title>
+    <meta
+      name="description"
+      content="Portfolio of Lou Fugier, a backend and full-stack software developer working with Python, JavaScript/TypeScript, APIs, cloud, Docker and AI integrations."
+    />
+    <meta name="author" content="Lou Fugier" />
+    <meta name="theme-color" content="#070b14" />
+
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="canonical" href="https://akulliaa.github.io/my-portfolio/" />
+
+    <!-- Social preview. TODO: add an og:image (1200x630) once an image is available. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content="https://akulliaa.github.io/my-portfolio/" />
+    <meta property="og:title" content="Lou Fugier | Software Developer" />
+    <meta
+      property="og:description"
+      content="Backend and full-stack software developer: Python, JavaScript/TypeScript, APIs, cloud, Docker and AI integrations."
+    />
+    <meta name="twitter:card" content="summary" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Rajdhani:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body>
+  <body class="dark">
+    <script>
+      // Applies the stored (or system) theme before first paint, so a light-theme
+      // visitor does not see a dark flash. Kept in sync with src/hooks/useTheme.js.
+      (function () {
+        try {
+          var stored = localStorage.getItem('portfolio-theme')
+          var theme =
+            stored === 'light' || stored === 'dark'
+              ? stored
+              : window.matchMedia('(prefers-color-scheme: light)').matches
+                ? 'light'
+                : 'dark'
+          document.body.className = theme
+          document.documentElement.style.colorScheme = theme
+        } catch (e) {
+          /* keep the default dark theme */
+        }
+      })()
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

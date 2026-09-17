@@ -1,49 +1,20 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
-import ProjectCard from '../components/ProjectCard';
-import { useOnScreen } from '../hooks/useOnScreen';
-import '../styles/Projects.scss';
-
-import pianoImg from '../assets/piano.png';
-import atimImg from '../assets/atim.png';
-import holoImg from '../assets/holoreed.png';
+import { useTranslation } from 'react-i18next'
+import Section from '../components/Section'
+import ProjectCard from '../components/ProjectCard'
+import { PROJECTS } from '../data/portfolio'
 
 const Projects = () => {
-  const { t } = useTranslation();
-  const [ref, visible] = useOnScreen();
-
-  const projects = [
-    {
-      title: t('projects.piano.title'),
-      description: t('projects.piano.description'),
-      image: pianoImg,
-      link: 'https://github.com/Akulliaa/Piano-Roll-App'
-    },
-    {
-      title: t('projects.atim.title'),
-      description: t('projects.atim.description'),
-      image: atimImg,
-      link: 'https://www.atim.com/acw-battery-life/'
-    },
-    {
-      title: t('projects.holoreed.title'),
-      description: t('projects.holoreed.description'),
-      image: holoImg,
-      link: 'https://github.com/Akulliaa/HoloReed'
-    }
-
-  ];
+  const { t } = useTranslation()
 
   return (
-    <section id="projects" ref={ref} className={`projects ${visible ? 'visible' : ''}`}>
-      <h2 className="projects__title">{t('nav.projects')}</h2>
+    <Section id="projects" title={t('projects.title')} className="projects">
       <div className="projects__grid">
-        {projects.map((project, index) => (
-          <ProjectCard key={index} {...project} />
+        {PROJECTS.map((project) => (
+          <ProjectCard key={project.id} project={project} />
         ))}
       </div>
-    </section>
-  );
-};
+    </Section>
+  )
+}
 
-export default Projects;
+export default Projects

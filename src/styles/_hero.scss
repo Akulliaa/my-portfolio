@@ -1,0 +1,87 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.hero {
+  display: flex;
+  align-items: center;
+  min-height: calc(100vh - #{v.$nav-height});
+  padding: 4rem 0;
+  scroll-margin-top: var(--nav-height);
+
+  &__inner {
+    @include m.container;
+    animation: hero-in 0.9s ease both;
+  }
+
+  &__status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 0 1.5rem;
+    padding: 0.35rem 0.85rem;
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+    // Sits on the backdrop, so it keeps the neon tone over a dark chip.
+    color: var(--accent);
+    background: rgba(0, 0, 0, 0.45);
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+  }
+
+  &__status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: var(--glow-accent);
+  }
+
+  &__title {
+    font-size: clamp(2.4rem, 1.6rem + 4vw, 4.2rem);
+    color: var(--accent);
+    text-shadow: var(--glow-accent);
+    letter-spacing: 0.02em;
+  }
+
+  &__role {
+    margin: 0.5rem 0 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.05rem, 0.85rem + 1.2vw, 1.6rem);
+    color: var(--accent-2);
+    text-shadow: var(--glow-accent-2);
+  }
+
+  &__intro {
+    max-width: 58ch;
+    margin: 1.5rem 0 0;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2.25rem;
+  }
+
+  @include m.below(v.$bp-sm) {
+    min-height: auto;
+    padding: 3rem 0 2.5rem;
+
+    &__actions .button {
+      flex: 1 1 100%;
+    }
+  }
+}
+
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

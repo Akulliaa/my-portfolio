@@ -1,0 +1,97 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.education {
+  &__list {
+    list-style: none;
+    margin: 2rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 1.25rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--rule);
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+  }
+
+  &__period {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+  }
+
+  &__degree {
+    font-size: 1.05rem;
+  }
+
+  &__school {
+    margin: 0.25rem 0 0;
+    color: var(--accent-2);
+  }
+
+  &__location {
+    color: var(--text-muted);
+  }
+
+  &__detail {
+    margin: 0.5rem 0 0;
+    font-size: 0.92rem;
+    color: var(--text-muted);
+  }
+
+  &__languages {
+    margin-top: 2.25rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  &__languages-title {
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  &__languages-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    list-style: none;
+    margin: 0.85rem 0 0;
+    padding: 0;
+
+    li {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__language-name {
+    font-family: var(--font-display);
+    color: var(--text-strong);
+  }
+
+  &__language-level {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  @include m.below(v.$bp-sm) {
+    &__item {
+      grid-template-columns: 1fr;
+      gap: 0.35rem;
+    }
+  }
+}
